@@ -40,7 +40,6 @@ void		ft_draw_map(t_mapinfo map)
 		}
 		k++;
 	}
-	//ft_draw_instruct(map);
 }
 
 void		ft_init_map(t_mapinfo *map)

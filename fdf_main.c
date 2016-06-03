@@ -43,5 +43,6 @@ int			main(int argc, char **argv)
 	map.win = mlx_new_window(map.mlx, WIN_X, WIN_Y, "FdF");
 	ft_init_map(&map);
 	mlx_key_hook(map.win, key_hook, &map);
+	ft_draw_instruct(map);
 	mlx_loop(map.mlx);
 }
