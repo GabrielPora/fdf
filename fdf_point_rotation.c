@@ -19,7 +19,7 @@ void	rotate_x(float angle, t_mapinfo *map)
 	int		u;
 	int		v;
 
-	angle = angle * 0.01745329252;
+	angle = angle * (M_PI / 180);
 	v = 0;
 	while (v < map->lines)
 	{
@@ -46,7 +46,7 @@ void	rotate_y(float angle, t_mapinfo *map)
 	int		v;
 
 	v = 0;
-	angle = angle * 0.01745329252;
+	angle = angle * (M_PI / 180);
 	while (v < map->lines)
 	{
 		u = 0;
@@ -72,7 +72,7 @@ void	rotate_z(float angle, t_mapinfo *map)
 	int		v;
 
 	v = 0;
-	angle = angle * 0.01745329252;
+	angle = angle * (M_PI / 180);
 	while (v < map->lines)
 	{
 		u = 0;
