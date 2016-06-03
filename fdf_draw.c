@@ -14,11 +14,11 @@
 
 void		ft_draw_instruct(t_mapinfo map)
 {
-	mlx_string_put(map.mlx, map.win, 5, 5, WHITE, "Q and E for y rotation");
-	mlx_string_put(map.mlx, map.win, 5, 20, WHITE, "A and D for x rotation");
-	mlx_string_put(map.mlx, map.win, 5, 35, WHITE, "W and S for z rotation");
-	mlx_string_put(map.mlx, map.win, 5, 50, WHITE,
-			"Arrows for scale. R to reset");
+	mlx_string_put(CON_FOUR 5, WHITE, "Q and E for y rotation");
+	mlx_string_put(CON_FOUR 20, WHITE, "A and D for x rotation");
+	mlx_string_put(CON_FOUR 35, WHITE, "W and S for z rotation");
+	mlx_string_put(CON_FOUR 50, WHITE, "Arrows for scale. R to reset");
+	mlx_string_put(CON_FOUR 65, WHITE, "I displays these instructions");
 }
 
 void		ft_draw_map(t_mapinfo map)
