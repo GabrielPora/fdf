@@ -17,10 +17,34 @@
 # include <math.h>
 # include "libft.h"
 # include "mlx.h"
+
 # define WIN_X 800
 # define WIN_Y 600
 # define DEFAULT_SCALE 20
 # define ANGL 5
+
+# define WHITE 0x00FFFFFF
+# define RED 0x00FF0000
+# define BROWN 0x808080
+# define L_Q 12
+# define L_W 13
+# define L_E 14
+# define L_A 0
+# define L_S 1
+# define L_D 2
+# define K_UP 126
+# define K_DOWN 125
+# define K_LEFT 123
+# define K_RIGHT 124
+# define ESC 53
+
+# define INIT_X 245
+# define INIT_Y 110
+# define INIT_Z -125
+
+# define CON_ONE str[k] == ',' || str[k] == 'x'
+# define CON_TWO fabs((double)(p1.x - p2.x))
+# define CON_THREE fabs((double)(p1.z - p2.z))
 
 typedef struct		s_point
 {
@@ -33,8 +57,10 @@ typedef struct		s_point
 typedef struct		s_mapinfo
 {
 	char	**map;
+	
 	int		lines;
 	int		width;
+	
 	int		points_num;
 	void	*mlx;
 	void	*win;

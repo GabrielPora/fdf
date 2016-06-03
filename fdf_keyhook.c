@@ -42,9 +42,9 @@ static void	key_scale(int keycode, t_mapinfo *map)
 
 static void	key_reset(t_mapinfo *map)
 {
-	map->rot_y = 110;
-	map->rot_z = -125;
-	map->rot_x = 245;
+	map->rot_x = INIT_X;
+	map->rot_y = INIT_Y;
+	map->rot_z = INIT_Z;
 	map->scale_x = map->ori_x;
 	map->scale_y = map->ori_y;
 }
@@ -71,7 +71,7 @@ int			key_hook(int keycode, t_mapinfo *map)
 	ft_centremap(&mapcpy);
 	ft_draw_map(mapcpy);
 	free_map(mapcpy);
-	ft_putnbr(keycode);
-	ft_putchar('\n');
+	//ft_putnbr(keycode);
+	//ft_putchar('\n');
 	return (0);
 }

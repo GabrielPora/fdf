@@ -14,34 +14,31 @@
 
 static void	ft_draw_instruct(t_mapinfo map)
 {
-	int	col;
-
-	col = 0x00FFFFFF;
-	mlx_string_put(map.mlx, map.win, 5, 5, col, "Q and E for y rotation");
-	mlx_string_put(map.mlx, map.win, 5, 20, col, "A and D for x rotation");
-	mlx_string_put(map.mlx, map.win, 5, 35, col, "W and S for z rotation");
-	mlx_string_put(map.mlx, map.win, 5, 50, col,
+	mlx_string_put(map.mlx, map.win, 5, 5, WHITE, "Q and E for y rotation");
+	mlx_string_put(map.mlx, map.win, 5, 20, WHITE, "A and D for x rotation");
+	mlx_string_put(map.mlx, map.win, 5, 35, WHITE, "W and S for z rotation");
+	mlx_string_put(map.mlx, map.win, 5, 50, WHITE,
 			"Arrows for scale. R to reset");
 }
 
 void		ft_draw_map(t_mapinfo map)
 {
-	int		u;
-	int		v;
+	int		k;
+	int		l;
 
-	v = 0;
-	while (v < map.lines)
+	k = 0;
+	while (k < map.lines)
 	{
-		u = 0;
-		while (u < map.width)
+		l = 0;
+		while (l < map.width)
 		{
-			if (v < map.lines - 1)
-				draw_line(map.points[v][u], map.points[v + 1][u], &map);
-			if (u < map.width - 1)
-				draw_line(map.points[v][u], map.points[v][u + 1], &map);
-			u++;
+			if (k + 1 < map.lines)
+				draw_line(map.points[k][l], map.points[k + 1][l], &map);
+			if (l + 1 < map.width)
+				draw_line(map.points[k][l], map.points[k][l + 1], &map);
+			l++;
 		}
-		v++;
+		k++;
 	}
 	ft_draw_instruct(map);
 }
@@ -50,9 +47,9 @@ void		ft_init_map(t_mapinfo *map)
 {
 	t_mapinfo mapcpy;
 
-	map->rot_x = 245;
-	map->rot_y = 110;
-	map->rot_z = -125;
+	map->rot_x = INIT_X;
+	map->rot_y = INIT_Y;
+	map->rot_z = INIT_Z;
 	mapcpy = *map;
 	mapcpy.points = ft_mapcopy(map);
 	scale_points(&mapcpy, map->scale_x, map->scale_y);

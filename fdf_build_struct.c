@@ -14,84 +14,80 @@
 
 static int		count_numbers(char *str)
 {
-	int	i;
-	int ret;
+	long int	k;
+	long int 	num;
 
-	i = 0;
-	ret = 0;
-	while (str[i] != '\0')
+	k = 0;
+	num = 0;
+	while (str[k] != '\0')
 	{
-		if (ft_isdigit(str[i]))
+		if (ft_isdigit(str[k]))
 		{
-			ret++;
-			while ((ft_isdigit(str[i]) && str[i])
-					|| str[i] == ',' || str[i] == 'x')
-				i++;
+			num++;
+			while ((ft_isdigit(str[k]) && str[k]) || CON_ONE)
+				k++;
 		}
 		else
-			i++;
+			k++;
 	}
-	return (ret);
+	return (num);
 }
 
 void			ft_map(t_mapinfo *map, t_point ***cloud)
 {
-	int		l;
-	int		c;
-	char	**split_line;
+	long int	k;
+	long int	l;
+	char		**split_line;
 	t_point	**new;
 
-	l = 0;
-	map->width = count_numbers(map->map[l]);
+	k = 0;
+	map->width = count_numbers(map->map[k]);
 	new = (t_point**)malloc(sizeof(t_point*) * map->lines);
-	while (l < map->lines)
+	while (k < map->lines)
 	{
-		new[l] = (t_point*)malloc(sizeof(t_point) * map->width);
-		c = 0;
-		split_line = ft_strsplit(map->map[l], ' ');
-		while (c < map->width)
+		new[k] = (t_point*)malloc(sizeof(t_point) * map->width);
+		l = 0;
+		split_line = ft_strsplit(map->map[k], ' ');
+		while (l < map->width)
 		{
-			new[l][c] = new_point(c, ft_atoi(split_line[c]), l);
-			c++;
+			new[k][l] = new_point(l, ft_atoi(split_line[l]), k);
+			l++;
 		}
 		free(split_line);
-		l++;
+		k++;
 	}
 	*cloud = new;
 }
 
 t_point			**ft_mapcopy(t_mapinfo *map)
 {
-	int		l;
-	int		c;
-	t_point	**new;
+	long int	k;
+	long int	l;
+	t_point		**new;
 
-	l = 0;
+	k = 0;
 	new = (t_point**)malloc(sizeof(t_point*) * map->lines);
-	while (l < map->lines)
+	while (k < map->lines)
 	{
-		new[l] = (t_point*)malloc(sizeof(t_point) * map->width);
-		c = 0;
-		while (c < map->width)
+		new[k] = (t_point*)malloc(sizeof(t_point) * map->width);
+		l = 0;
+		while (l < map->width)
 		{
-			new[l][c] = map->points[l][c];
-			c++;
+			new[k][l] = map->points[k][l];
+			l++;
 		}
-		l++;
+		k++;
 	}
 	return (new);
 }
 
 void			free_map(t_mapinfo map)
 {
-	int		v;
+	long int	k;
 
-	v = 0;
-	while (v < map.lines)
-	{
-		free(map.points[v]);
-		v++;
-	}
+	k = -1;
+	while (++k < map.lines)
+		free(map.points[k]);
 	free(map.points);
 	map.points = NULL;
 }
