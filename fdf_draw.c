@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static void	ft_draw_instruct(t_mapinfo map)
+void		ft_draw_instruct(t_mapinfo map)
 {
 	mlx_string_put(map.mlx, map.win, 5, 5, WHITE, "Q and E for y rotation");
 	mlx_string_put(map.mlx, map.win, 5, 20, WHITE, "A and D for x rotation");
@@ -40,7 +40,7 @@ void		ft_draw_map(t_mapinfo map)
 		}
 		k++;
 	}
-	ft_draw_instruct(map);
+	//ft_draw_instruct(map);
 }
 
 void		ft_init_map(t_mapinfo *map)

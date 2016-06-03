@@ -26,6 +26,7 @@
 # define WHITE 0x00FFFFFF
 # define RED 0x00FF0000
 # define BROWN 0x808080
+
 # define L_Q 12
 # define L_W 13
 # define L_E 14
@@ -105,6 +106,8 @@ void				ft_movemap(t_mapinfo *map, int offset_x, int offset_y);
 void				ft_centremap(t_mapinfo *map);
 
 void				ft_draw_map(t_mapinfo map);
+
+void				ft_draw_instruct(t_mapinfo map);
 
 int					key_hook(int keycode, t_mapinfo *map);
 
