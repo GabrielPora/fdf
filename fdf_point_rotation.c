@@ -26,12 +26,10 @@ void	rotate_x(float angle, t_mapinfo *map)
 		u = 0;
 		while (u < map->width)
 		{
-			z1 = map->points[v][u].z * cos(angle) - map->points[v][u].y
-				* sin(angle);
-			y1 = map->points[v][u].y * cos(angle) + map->points[v][u].z
-				* sin(angle);
-			map->points[v][u].y = y1;
-			map->points[v][u].z = z1;
+			z1 = MAP_POINT.z * cos(angle) - MAP_POINT.y * sin(angle);
+			y1 = MAP_POINT.y * cos(angle) + MAP_POINT.z * sin(angle);
+			MAP_POINT.y = y1;
+			MAP_POINT.z = z1;
 			u++;
 		}
 		v++;
@@ -52,12 +50,10 @@ void	rotate_y(float angle, t_mapinfo *map)
 		u = 0;
 		while (u < map->width)
 		{
-			x1 = map->points[v][u].z * cos(angle) + map->points[v][u].x
-				* sin(angle);
-			z1 = map->points[v][u].x * cos(angle) - map->points[v][u].z
-				* sin(angle);
-			map->points[v][u].x = x1;
-			map->points[v][u].z = z1;
+			x1 = MAP_POINT.z * cos(angle) + MAP_POINT.x * sin(angle);
+			z1 = MAP_POINT.x * cos(angle) - MAP_POINT.z * sin(angle);
+			MAP_POINT.x = x1;
+			MAP_POINT.z = z1;
 			u++;
 		}
 		v++;
@@ -78,12 +74,10 @@ void	rotate_z(float angle, t_mapinfo *map)
 		u = 0;
 		while (u < map->width)
 		{
-			x1 = map->points[v][u].y * cos(angle) - map->points[v][u].x
-				* sin(angle);
-			y1 = map->points[v][u].y * sin(angle) + map->points[v][u].x
-				* cos(angle);
-			map->points[v][u].x = x1;
-			map->points[v][u].y = y1;
+			x1 = MAP_POINT.y * cos(angle) - MAP_POINT.x * sin(angle);
+			y1 = MAP_POINT.y * sin(angle) + MAP_POINT.x * cos(angle);
+			MAP_POINT.x = x1;
+			MAP_POINT.y = y1;
 			u++;
 		}
 		v++;

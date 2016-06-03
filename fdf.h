@@ -45,6 +45,7 @@
 # define CON_ONE str[k] == ',' || str[k] == 'x'
 # define CON_TWO fabs((double)(p1.x - p2.x))
 # define CON_THREE fabs((double)(p1.z - p2.z))
+# define MAP_POINT map->points[v][u]
 
 typedef struct		s_point
 {
